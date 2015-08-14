@@ -7,8 +7,9 @@ public class SC2ButtonControl : MonoBehaviour {
 	private const int kFileId = 1; // change this for each scene
 	
 	public void SC2ButtonClick() {
-//		ScrollScript.ReadFromDir (".");
-		ScrollScript.ReadFromDir ("Assets/.");
+//		ScrollScript.ReadFromDir ("."); // current
+//		ScrollScript.ReadFromDir ("Assets/"); // ok
+		ScrollScript.ReadFromDir ("Assets"); // ok
 
 		SelectButtonControl.SetCallingScene (Application.loadedLevelName);
 		SelectButtonControl.SetFileId (kFileId);
