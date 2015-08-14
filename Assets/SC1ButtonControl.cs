@@ -22,11 +22,10 @@ public class SC1ButtonControl : MonoBehaviour {
 		Application.LoadLevel ("FileSelector");
 	}
 
-	void UpdateInputFiled () {
+	void UpdateInputField (string dirname) {
 		if (dirNameInputField.text.Length > 0) {
-			return; // do not write if already input
+			return; // do not write if already input by user or input by this function
 		}
-		string dirname = SelectButtonControl.GetSelectedName (kFileId);
 		if (dirname.Length == 0) {
 			return;
 		}
@@ -37,8 +36,7 @@ public class SC1ButtonControl : MonoBehaviour {
 	void OnGUI() {
 		myText.text = SelectButtonControl.GetSelectedName (kFileId);
 		if (kDirSearch) {
-//			UpdateInputFiled(SelectButtonControl.GetSelectedName (kFileId));
-			UpdateInputFiled();
+			UpdateInputField(SelectButtonControl.GetSelectedName (kFileId));
 		}
 	}
 }
