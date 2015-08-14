@@ -81,7 +81,9 @@ public class ScrollScript : MonoBehaviour {
 	{
 		foreach (Text aText in Text.FindObjectsOfType<Text> ()) {
 			if (aText.name.Contains("Button")) { // e.g. Button2Text
-				aText.text = "";
+				if (aText.name.Contains("Cancel") == false) {
+					aText.text = "";
+				}
 			}
 		}
 	}
