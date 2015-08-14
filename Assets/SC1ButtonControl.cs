@@ -22,6 +22,6 @@ public class SC1ButtonControl : MonoBehaviour {
 	
 	public Text myText; // should be related to TextFileName:Text
 	void OnGUI() {
-		myText.text = SelectButtonControl.GetFilename (kFileId);
+		myText.text = SelectButtonControl.GetSelectedName (kFileId);
 	}
 }

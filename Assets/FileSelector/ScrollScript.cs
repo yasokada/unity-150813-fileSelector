@@ -18,7 +18,12 @@ using System.IO; // for Directory()
 public class ScrollScript : MonoBehaviour {
 	public Text dirNameText;
 	private static string s_DirName;
-	private static string [ ] s_files = Directory.GetFiles("."); 
+	private static string[ ] s_files;
+
+	void Start() {
+		s_files = Directory.GetFiles (".");
+		updateFileList ();
+	}
 
 	public static bool ReadFromDir(string dirname) {
 		if (Directory.Exists (dirname) == false) {
@@ -83,11 +88,7 @@ public class ScrollScript : MonoBehaviour {
 			Debug.Log(aFile);
 		}
 	}
-	
-	void Start() {
-		updateFileList ();
-	}
-	
+
 	public void ScrollBarChange() {
 		updateFileList ();
 	}   
