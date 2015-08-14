@@ -4,13 +4,13 @@ using UnityEngine.UI;
 using System.IO; // for Directory.XXX
 
 public class SC1ButtonControl : MonoBehaviour {
-
-	private const int kFileId = 0; // change this for each scene
+	[Range(0, 5)]
+	public int fileId; // set this in inspector
 
 	public InputField dirNameInputField; // should be related to Input Field for entering dirname
 	
 	private void SelectFunc (bool dirSearch) {
-		ScrollScript.SelectFunc (dirNameInputField.text, dirSearch, kFileId);
+		ScrollScript.SelectFunc (dirNameInputField.text, dirSearch, fileId);
 	}
 
 	public void ButtonFileSelectClick() { SelectFunc(/* dirSearch=*/false); }
@@ -25,7 +25,7 @@ public class SC1ButtonControl : MonoBehaviour {
 	public Text myText; // should be related to TextFileName:Text
 
 	void Start() {
-		myText.text = SelectButtonControl.GetSelectedName (kFileId);
-		ScrollScript.UpdateInputField(dirNameInputField, kFileId);
+		myText.text = SelectButtonControl.GetSelectedName (fileId);
+		ScrollScript.UpdateInputField(dirNameInputField, fileId);
 	}
 }
