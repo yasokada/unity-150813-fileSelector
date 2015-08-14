@@ -17,20 +17,35 @@ using System.IO; // for Directory()
 
 public class ScrollScript : MonoBehaviour {
 	public Text dirNameText;
+	public static bool dirSearch = false; // true:dir selection, false: file selection
 	private static string s_DirName;
 	private static string[ ] s_files;
-
+	
 	void Start() {
-		s_files = Directory.GetFiles (".");
-		updateFileList ();
+		if (dirSearch == false) {
+			s_files = Directory.GetFiles (".");
+		} else {
+			s_files = Directory.GetDirectories(".");
+		}
+		updateFileListOnButtons ();
 	}
 
+	public static void SetDirSearch(bool bf)
+	{
+		dirSearch = bf;
+	}
 	public static bool ReadFromDir(string dirname) {
 		if (Directory.Exists (dirname) == false) {
 			return false;
 		}
 		s_DirName = dirname;
-		s_files = Directory.GetFiles (dirname);
+
+		if (dirSearch == false) {
+			s_files = Directory.GetFiles (".");
+		} else {
+			s_files = Directory.GetDirectories(".");
+		}
+
 		if (s_files.Length == 0) {
 			return false;
 		}
@@ -76,7 +91,7 @@ public class ScrollScript : MonoBehaviour {
 		}
 	}
 	
-	private void updateFileList()
+	private void updateFileListOnButtons()
 	{
 		int shift = getShiftValue ("ScrollbarFile", s_files.Length);
 		
@@ -90,7 +105,7 @@ public class ScrollScript : MonoBehaviour {
 	}
 
 	public void ScrollBarChange() {
-		updateFileList ();
+		updateFileListOnButtons ();
 	}   
 
 	void OnGUI() {

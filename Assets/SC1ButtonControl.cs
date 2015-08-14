@@ -9,6 +9,7 @@ public class SC1ButtonControl : MonoBehaviour {
 	public InputField dirNameInputField; // should be related to Input Field for entering dirname
 
 	public void Button1Click() {
+		ScrollScript.SetDirSearch (true);
 		bool res = ScrollScript.ReadFromDir (dirNameInputField.text);
 		if (res == false) {
 			Debug.Log("dir not found");
