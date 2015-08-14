@@ -10,9 +10,6 @@ public class SelectButtonControl : MonoBehaviour {
 
 	void Start() {
 		DontDestroyOnLoad (this); // to access public static variables from other scenes
-//		for (int idx=0; idx<kMaxFiles; idx++) {
-//			selectedname[idx] = "";
-//		}
 	}
 	
 	public static void SetFileId(int id) { fileId = id; }
@@ -28,18 +25,22 @@ public class SelectButtonControl : MonoBehaviour {
 		}
 		return selectedname[index];
 	}
-	
+
+	private void selectItemName(string buttonText) {
+		if (buttonText.Equals("Cancel")) {
+			return; // do nothing
+		} 
+		if (buttonText.Length == 0) {
+			return; // do nothing
+		}
+		selectedname[fileId] = buttonText;
+	}
+
 	public void ButtonSelector() {
 		GameObject work = GameObject.Find (gameObject.name + "Text"); // e.g. Button1Text
 		if (work) {
 			string buttonText = work.GetComponent<Text>().text;
-			if (buttonText.Equals("Cancel") == false) {
-				selectedname[fileId] = buttonText;
-			} else {
-				// do nothing
-			}      
-		} else { // error
-			selectedname[fileId] = "";
+			selectItemName(buttonText);
 		}
 		Application.LoadLevel (callingScene); // back to calling scene
 	}
