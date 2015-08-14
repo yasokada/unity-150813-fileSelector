@@ -1,9 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SC2ButtonControl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SC1ButtonControl.cs">
     <Files>
-      <File FileName="Assets/SelectButtonControl.cs" Line="15" Column="1" />
-      <File FileName="Assets/SC2ButtonControl.cs" Line="11" Column="43" />
+      <File FileName="Assets/SC1ButtonControl.cs" Line="10" Column="34" />
+      <File FileName="Assets/SC2ButtonControl.cs" Line="12" Column="45" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

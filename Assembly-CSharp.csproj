@@ -46,10 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\FileSelector\ScrollScript.cs" />
+     <Compile Include="Assets\FileSelector\SelectButtonControl.cs" />
      <Compile Include="Assets\SC1ButtonControl.cs" />
      <Compile Include="Assets\SC2ButtonControl.cs" />
-     <Compile Include="Assets\ScrollScript.cs" />
-     <Compile Include="Assets\SelectButtonControl.cs" />
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
