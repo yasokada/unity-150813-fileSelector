@@ -16,9 +16,14 @@ using System.IO; // for Directory()
 // EventSystem
 
 public class ScrollScript : MonoBehaviour {
-	
-	private string [ ] s_files = Directory.GetFiles("."); 
-	
+
+
+	private static string [ ] s_files = Directory.GetFiles("."); 
+
+	public static void ReadFromDir(string dirname) {
+		s_files = Directory.GetFiles (dirname);
+	}
+
 	private void dispFilesOnButtons(string filename, int idx, int shift) {
 		int pos = idx - shift;
 		GameObject work = GameObject.Find ("Button" + pos.ToString () + "Text");
