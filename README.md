@@ -7,8 +7,8 @@ File and Directory selector for unity-5.1.1-f1 using uGUI.
 
 ##preparation
 
-1. add CanvasFile.prefab to the scene
-2. add EventSystem if it does not exist in the scene
+1. add CanvasFile.prefab to the Hierarchy of the scene
+2. add EventSystem if it does not exist in the Hierarchy
 3. change [File Id] of {ButtonFileSel, ButtonDirSel, ButtonUpper} to differ from other CanvasFile object in the scene.
 
 ##How to use
