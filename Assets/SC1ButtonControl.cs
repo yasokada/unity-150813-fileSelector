@@ -6,6 +6,7 @@ public class SC1ButtonControl : MonoBehaviour {
 
 	private const int kFileId = 0; // change this for each scene
 	private bool kDirSearch = true; // false:file selection, true:dir selection
+	private bool justStarted = true; // set true after coming back from other scenes
 
 	public InputField dirNameInputField; // should be related to Input Field for entering dirname
 
@@ -41,6 +42,9 @@ public class SC1ButtonControl : MonoBehaviour {
 	public Text myText; // should be related to TextFileName:Text
 	void OnGUI() {
 		myText.text = SelectButtonControl.GetSelectedName (kFileId);
-		UpdateInputField(SelectButtonControl.GetSelectedName (kFileId));
+		if (justStarted) {
+			justStarted = false;
+			UpdateInputField (SelectButtonControl.GetSelectedName (kFileId));
+		}
 	}
 }
