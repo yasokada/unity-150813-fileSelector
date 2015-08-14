@@ -6,7 +6,6 @@ using System.IO; // for Directory.XXX
 public class SC1ButtonControl : MonoBehaviour {
 
 	private const int kFileId = 0; // change this for each scene
-	private bool justStarted = true; // set true after coming back from other scenes
 
 	public InputField dirNameInputField; // should be related to Input Field for entering dirname
 	
@@ -24,11 +23,9 @@ public class SC1ButtonControl : MonoBehaviour {
 	}
 
 	public Text myText; // should be related to TextFileName:Text
-	void OnGUI() {
-		if (justStarted) {
-			justStarted = false;
-			myText.text = SelectButtonControl.GetSelectedName (kFileId);
-			ScrollScript.UpdateInputField(dirNameInputField, kFileId);
-		}
+
+	void Start() {
+		myText.text = SelectButtonControl.GetSelectedName (kFileId);
+		ScrollScript.UpdateInputField(dirNameInputField, kFileId);
 	}
 }
