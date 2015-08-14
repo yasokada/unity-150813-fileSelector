@@ -47,6 +47,21 @@ public class ScrollScript : MonoBehaviour {
 		return true;
 	}
 
+	public static void SelectFunc(string baseDir, bool dirSearch, int fileid)
+	{
+		ScrollScript.SetDirSearch (dirSearch);
+		bool res = ScrollScript.ReadFromDir (baseDir);
+		if (res == false) {
+			Debug.Log("dir not found");
+			return;
+		}
+		
+		SelectButtonControl.SetCallingScene (Application.loadedLevelName);
+		SelectButtonControl.SetFileId (fileid);
+		Application.LoadLevel ("FileSelector");
+	}
+
+
 	private void dispFilesOnButtons(string filename, int idx, int shift) {
 		int pos = idx - shift;
 		GameObject work = GameObject.Find ("Button" + pos.ToString () + "Text");
