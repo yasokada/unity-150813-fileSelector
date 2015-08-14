@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.IO; // for Directory.XXX
 
 public class SC1ButtonControl : MonoBehaviour {
 
@@ -29,6 +30,12 @@ public class SC1ButtonControl : MonoBehaviour {
 	public void ButtonFileSelectClick() { SelectFunc(/* dirSearch=*/false); }
 	public void ButtonDirSelectClick() { SelectFunc(/* dirSearch=*/true); }
 
+	public void ButtonUpper()
+	{
+		string now = dirNameInputField.text;
+		dirNameInputField.text = Directory.GetParent (now).ToString ();
+	}
+
 	void UpdateInputField (string dirname) {
 		if (dirNameInputField.text.Length > 0) {
 			return; // do not write if already input by user or input by this function
@@ -41,9 +48,9 @@ public class SC1ButtonControl : MonoBehaviour {
 
 	public Text myText; // should be related to TextFileName:Text
 	void OnGUI() {
-		myText.text = SelectButtonControl.GetSelectedName (kFileId);
 		if (justStarted) {
 			justStarted = false;
+			myText.text = SelectButtonControl.GetSelectedName (kFileId);
 			UpdateInputField (SelectButtonControl.GetSelectedName (kFileId));
 		}
 	}
