@@ -11,7 +11,7 @@ public class SelectButtonControl : MonoBehaviour {
 	void Start() {
 		DontDestroyOnLoad (this); // to access public static variables from other scenes
 	}
-
+	
 	public static void SetFileId(int id) { fileId = id; }
 	public static void SetCallingScene(string sceneName) { callingScene = sceneName; }
 

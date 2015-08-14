@@ -1,10 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SelectButtonControl.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SC2ButtonControl.cs">
     <Files>
-      <File FileName="Assets/SelectButtonControl.cs" Line="23" Column="1" />
-      <File FileName="Assets/Button1Control.cs" Line="5" Column="28" />
-      <File FileName="Assets/ScrollScript.cs" Line="18" Column="26" />
+      <File FileName="Assets/SelectButtonControl.cs" Line="15" Column="1" />
+      <File FileName="Assets/SC2ButtonControl.cs" Line="11" Column="43" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

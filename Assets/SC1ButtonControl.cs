@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class Button1Control : MonoBehaviour {
+public class SC1ButtonControl : MonoBehaviour {
 
 	private const int kFileId = 0; // change this for each scene
 

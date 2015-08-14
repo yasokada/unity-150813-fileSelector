@@ -46,7 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Button1Control.cs" />
+     <Compile Include="Assets\SC1ButtonControl.cs" />
      <Compile Include="Assets\SC2ButtonControl.cs" />
      <Compile Include="Assets\ScrollScript.cs" />
      <Compile Include="Assets\SelectButtonControl.cs" />
