@@ -26,7 +26,20 @@ public class ScrollScript : MonoBehaviour {
 			work.GetComponent<Text>().text = filename;
 		}
 	}
-	
+
+	private void changeScrollBarValue(string scrollBarName, bool isUp) {
+		GameObject work = GameObject.Find (scrollBarName);
+		if (work) {
+			float aRatio = (float)work.GetComponent<Scrollbar>().value;
+			if (isUp) {
+				aRatio -= 0.05f; // for from top to bottom direction
+			} else {
+				aRatio += 0.05f; // for from top to bottom direction
+			}
+			work.GetComponent<Scrollbar>().value = aRatio;
+		}
+	}
+
 	private int getShiftValue(string scrollBarName, int maxFileNum) {
 		GameObject work = GameObject.Find (scrollBarName);
 		if (work) {
@@ -65,4 +78,18 @@ public class ScrollScript : MonoBehaviour {
 	public void ScrollBarChange() {
 		updateFileList ();
 	}   
+
+	void OnGUI() {
+		float val = Input.GetAxis ("Mouse ScrollWheel");
+		if (val > 0.0f) {
+			changeScrollBarValue("ScrollbarFile", /* isUp=*/true);
+			Debug.Log ("up");
+		} else if (val < 0.0f) {
+			changeScrollBarValue("ScrollbarFile", /* isUp=*/false);
+			Debug.Log ("down");
+		} else {
+			// do nothing
+		}
+	}
+
 }
