@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Button1Control.cs" />
-     <Compile Include="Assets\Common.cs" />
+     <Compile Include="Assets\SC2ButtonControl.cs" />
      <Compile Include="Assets\ScrollScript.cs" />
      <Compile Include="Assets\SelectButtonControl.cs" />
  <Reference Include="UnityEngine.Analytics">
