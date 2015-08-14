@@ -10,6 +10,9 @@ public class SelectButtonControl : MonoBehaviour {
 
 	void Start() {
 		DontDestroyOnLoad (this); // to access public static variables from other scenes
+		for (int idx=0; idx<kMaxFiles; idx++) {
+			selectedname[idx] = "";
+		}
 	}
 	
 	public static void SetFileId(int id) { fileId = id; }
@@ -18,6 +21,9 @@ public class SelectButtonControl : MonoBehaviour {
 	public static string GetSelectedName(int index)
 	{
 		if (index < 0 || index > kMaxFiles) {
+			return "";
+		}
+		if (selectedname [0] == null) { // if not yet initialized
 			return "";
 		}
 		return selectedname[index];
