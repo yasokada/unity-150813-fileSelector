@@ -1,17 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using Common;
 
 public class SelectButtonControl : MonoBehaviour {
+	public static string callingScene;
+	public static string filename;
+
+	void Start() {
+		DontDestroyOnLoad (this); // to access public static variables from other scenes
+	}
+
 	public void ButtonSelector() {
 		GameObject work = GameObject.Find (gameObject.name + "Text"); // e.g. Button1Text
 		if (work) {
-			Button1Control.filename = work.GetComponent<Text>().text;
-		} else {
-			Button1Control.filename = gameObject.name;
+			filename = work.GetComponent<Text>().text;
+		} else { // error
+			filename = "";
 		}
-//		Application.LoadLevel ("Scene1");
-		Application.LoadLevel (Define.callingScene);
+		Application.LoadLevel (callingScene); // back to calling scene
 	}
 }
