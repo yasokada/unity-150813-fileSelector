@@ -20,7 +20,7 @@ public class SelectButtonControl : MonoBehaviour {
 		if (index < 0 || index > kMaxFiles) {
 			return "";
 		}
-		if (selectedname [0] == null) { // if not yet initialized
+		if (selectedname [index] == null) { // if not yet initialized
 			return "";
 		}
 		return selectedname[index];
