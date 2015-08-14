@@ -23,22 +23,12 @@ public class SC1ButtonControl : MonoBehaviour {
 		dirNameInputField.text = Directory.GetParent (now).ToString ();
 	}
 
-	void UpdateInputField (string dirname) {
-		if (dirNameInputField.text.Length > 0) {
-			return; // do not write if already input by user or input by this function
-		}
-		if (dirname.Length == 0) {
-			return;
-		}
-		dirNameInputField.text = dirname;
-	}
-
 	public Text myText; // should be related to TextFileName:Text
 	void OnGUI() {
 		if (justStarted) {
 			justStarted = false;
 			myText.text = SelectButtonControl.GetSelectedName (kFileId);
-			UpdateInputField (SelectButtonControl.GetSelectedName (kFileId));
+			ScrollScript.UpdateInputField(dirNameInputField, kFileId);
 		}
 	}
 }

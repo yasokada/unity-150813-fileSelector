@@ -61,6 +61,16 @@ public class ScrollScript : MonoBehaviour {
 		Application.LoadLevel ("FileSelector");
 	}
 
+	public static void UpdateInputField (InputField inputField, int fileId) {
+		if (inputField.text.Length > 0) {
+			return; // do not write if already input by user or input by this function
+		}
+		string dirname = SelectButtonControl.GetSelectedName (fileId);
+		if (dirname.Length == 0) {
+			return;
+		}
+		inputField.text = dirname;
+	}
 
 	private void dispFilesOnButtons(string filename, int idx, int shift) {
 		int pos = idx - shift;
