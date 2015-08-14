@@ -22,11 +22,6 @@ public class ScrollScript : MonoBehaviour {
 	private static string[ ] s_files;
 	
 	void Start() {
-		if (dirSearch == false) {
-			s_files = Directory.GetFiles (".");
-		} else {
-			s_files = Directory.GetDirectories(".");
-		}
 		updateFileListOnButtons ();
 	}
 
@@ -41,9 +36,9 @@ public class ScrollScript : MonoBehaviour {
 		s_DirName = dirname;
 
 		if (dirSearch == false) {
-			s_files = Directory.GetFiles (".");
+			s_files = Directory.GetFiles (dirname);
 		} else {
-			s_files = Directory.GetDirectories(".");
+			s_files = Directory.GetDirectories(dirname);
 		}
 
 		if (s_files.Length == 0) {

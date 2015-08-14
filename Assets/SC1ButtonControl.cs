@@ -5,11 +5,12 @@ using UnityEngine.UI;
 public class SC1ButtonControl : MonoBehaviour {
 
 	private const int kFileId = 0; // change this for each scene
+	private const bool kDirSearch = true; // false:file selection, true:dir selection
 
 	public InputField dirNameInputField; // should be related to Input Field for entering dirname
 
 	public void Button1Click() {
-		ScrollScript.SetDirSearch (true);
+		ScrollScript.SetDirSearch (kDirSearch);
 		bool res = ScrollScript.ReadFromDir (dirNameInputField.text);
 		if (res == false) {
 			Debug.Log("dir not found");
@@ -20,9 +21,24 @@ public class SC1ButtonControl : MonoBehaviour {
 		SelectButtonControl.SetFileId (kFileId);
 		Application.LoadLevel ("FileSelector");
 	}
-	
+
+	void UpdateInputFiled () {
+		if (dirNameInputField.text.Length > 0) {
+			return; // do not write if already input
+		}
+		string dirname = SelectButtonControl.GetSelectedName (kFileId);
+		if (dirname.Length == 0) {
+			return;
+		}
+		dirNameInputField.text = dirname;
+	}
+
 	public Text myText; // should be related to TextFileName:Text
 	void OnGUI() {
 		myText.text = SelectButtonControl.GetSelectedName (kFileId);
+		if (kDirSearch) {
+//			UpdateInputFiled(SelectButtonControl.GetSelectedName (kFileId));
+			UpdateInputFiled();
+		}
 	}
 }
