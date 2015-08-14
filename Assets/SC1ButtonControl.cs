@@ -25,14 +25,8 @@ public class SC1ButtonControl : MonoBehaviour {
 		Application.LoadLevel ("FileSelector");
 	}
 
-	public void ButtonFileSelectClick() {
-		SelectFunc(/* dirSearch=*/false);
-	}
-
-	public void ButtonDirSelectClick()
-	{
-		SelectFunc(/* dirSearch=*/true);
-	}
+	public void ButtonFileSelectClick() { SelectFunc(/* dirSearch=*/false); }
+	public void ButtonDirSelectClick() { SelectFunc(/* dirSearch=*/true); }
 
 	void UpdateInputField (string dirname) {
 		if (dirNameInputField.text.Length > 0) {
@@ -47,8 +41,6 @@ public class SC1ButtonControl : MonoBehaviour {
 	public Text myText; // should be related to TextFileName:Text
 	void OnGUI() {
 		myText.text = SelectButtonControl.GetSelectedName (kFileId);
-		if (kDirSearch) {
-			UpdateInputField(SelectButtonControl.GetSelectedName (kFileId));
-		}
+		UpdateInputField(SelectButtonControl.GetSelectedName (kFileId));
 	}
 }
