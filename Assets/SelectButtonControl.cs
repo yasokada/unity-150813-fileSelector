@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class SelectButtonControl : MonoBehaviour {
 	private const int kMaxFiles = 5;
+	public static string [] filename = new string[kMaxFiles];
 	public static string callingScene;
 	public static int fileId = 0;
-	public static string [] filename = new string[kMaxFiles];
 
 	void Start() {
 		DontDestroyOnLoad (this); // to access public static variables from other scenes
