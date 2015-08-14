@@ -20,8 +20,15 @@ public class ScrollScript : MonoBehaviour {
 
 	private static string [ ] s_files = Directory.GetFiles("."); 
 
-	public static void ReadFromDir(string dirname) {
+	public static bool ReadFromDir(string dirname) {
+		if (Directory.Exists (dirname) == false) {
+			return false;
+		}
 		s_files = Directory.GetFiles (dirname);
+		if (s_files.Length == 0) {
+			return false;
+		}
+		return true;
 	}
 
 	private void dispFilesOnButtons(string filename, int idx, int shift) {

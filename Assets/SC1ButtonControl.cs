@@ -6,8 +6,20 @@ public class SC1ButtonControl : MonoBehaviour {
 
 	private const int kFileId = 0; // change this for each scene
 
+	public InputField dirNameInputField; // should be related to Input Field for entering dirname
+
 	public void Button1Click() {
-		ScrollScript.ReadFromDir (".");
+		bool res;
+		if (dirNameInputField.text.Length > 0) {
+			res = ScrollScript.ReadFromDir (dirNameInputField.text);
+		} else {
+			res = ScrollScript.ReadFromDir (".");
+		}
+		if (res == false) {
+			Debug.Log("dir not found");
+			return;
+		}
+
 		SelectButtonControl.SetCallingScene (Application.loadedLevelName);
 		SelectButtonControl.SetFileId (kFileId);
 		Application.LoadLevel ("FileSelector");
