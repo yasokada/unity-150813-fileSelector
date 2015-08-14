@@ -5,13 +5,13 @@ using UnityEngine.UI;
 public class SC1ButtonControl : MonoBehaviour {
 
 	private const int kFileId = 0; // change this for each scene
-	private bool kDirSearch = false; // false:file selection, true:dir selection
+	private bool kDirSearch = true; // false:file selection, true:dir selection
 
 	public InputField dirNameInputField; // should be related to Input Field for entering dirname
 
 	private void SelectFunc(bool dirSearch)
 	{
-		kDirSearch = false;
+		kDirSearch = dirSearch;
 		
 		ScrollScript.SetDirSearch (kDirSearch);
 		bool res = ScrollScript.ReadFromDir (dirNameInputField.text);
