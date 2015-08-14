@@ -16,14 +16,15 @@ using System.IO; // for Directory()
 // EventSystem
 
 public class ScrollScript : MonoBehaviour {
-
-
+	public Text dirNameText;
+	private static string s_DirName;
 	private static string [ ] s_files = Directory.GetFiles("."); 
 
 	public static bool ReadFromDir(string dirname) {
 		if (Directory.Exists (dirname) == false) {
 			return false;
 		}
+		s_DirName = dirname;
 		s_files = Directory.GetFiles (dirname);
 		if (s_files.Length == 0) {
 			return false;
@@ -92,6 +93,8 @@ public class ScrollScript : MonoBehaviour {
 	}   
 
 	void OnGUI() {
+		dirNameText.text = s_DirName;
+
 		float val = Input.GetAxis ("Mouse ScrollWheel");
 		if (val > 0.0f) {
 			changeScrollBarValue("ScrollbarFile", /* isUp=*/true);
